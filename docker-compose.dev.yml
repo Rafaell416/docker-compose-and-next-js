@@ -1,0 +1,12 @@
+version: "3"
+
+services: 
+  blog:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    restart: unless-stopped
+    volumes:
+      - /src/node_modules/
+    ports:
+      - "3000:3000"

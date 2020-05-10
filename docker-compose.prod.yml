@@ -1,0 +1,25 @@
+version: "3"
+
+services: 
+  blog:
+    build: 
+      context: .
+      dockerfile: Dockerfile.prod  
+    container_name: blog
+    restart: unless-stopped
+    volumes:
+      - .:/next_blog
+      - /next_blog/node_modules/
+    ports:
+      - "3000:3000"
+  nginx:
+    depends_on:
+      - blog
+    image: nginx:latest
+    container_name: nginx
+    restart: unless-stopped
+    volumes:
+      - ./deploy/prod/nginx:/etc/nginx/conf.d
+    ports:
+      - "80:80"
+      - "443:443"
