@@ -10,7 +10,7 @@
     "deploy:staging": "sh deploy/prod/deploy-to-staging.sh"
   },
   "dependencies": {
-    "next": "9.3.5",
+    "next": "11.1.0",
     "qs": "^6.9.4",
     "react": "16.13.1",
     "react-dom": "16.13.1"
